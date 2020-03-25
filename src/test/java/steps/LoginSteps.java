@@ -1,5 +1,6 @@
 package steps;
 
+import io.appium.java_client.AppiumDriver;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -12,62 +13,51 @@ import pages.HomePage;
 
 public class LoginSteps {
 
-    private WebDriver webDriver;
+    private AppiumDriver appiumDriver;
     private HomePage homePage;
 
     public LoginSteps(HookHelper hookHelper)
     {
-        webDriver = hookHelper.getWebDriver();
+        appiumDriver = hookHelper.getAppiumDriver();
     }
 
-    @Given("^the user opens login form overlay from Falabella's home page$")
-    public void theUserOpensLoginFormOverlayFromFalabellaSHomePage()
+    @Given("the user is in Kijiji's home page")
+    public void theUserIsInKijijiSHomePage()
     {
-        homePage = new HomePage(webDriver);
-        homePage.openLoginFormOverlay();
+        homePage = new HomePage(appiumDriver);
     }
 
-    @When("^the user types in its credentials for username and password$")
-    public void theUserTypesInItsCredentialsForUsernameAndPassword(DataTable fields)
+    @And("the user clicks on menu icon")
+    public void theUserClicksOnMenuIcon()
     {
-        homePage.processDataTable(fields);
-        homePage.EmailInsert();
-        homePage.PasswordInsert();
+        homePage.clickMenuIcon();
     }
 
-    @And("^clicks login button$")
-    public void clicksLoginButton()
+    @When("the user clicks on sign in button and selects sign in option button")
+    public void theUserClicksOnSignInButtonAndSelectsSignInOptionButton()
     {
-        homePage.loginButton();
+        homePage.clickSignInButtonFromMenu();
+        homePage.clickSignInOptionButton();
     }
 
-    @Then("^the page shows error with email/password to the user$")
-    public void thePageShowsErrorWithEmailPasswordToTheUser()
+    @And("types in its credentials for email and password and enters them clicking sign in button")
+    public void typesInItsCredentialsForEmailAndPasswordAndEntersThemClickingSignInButton(DataTable fields)
     {
-        Assert.assertTrue("Error: Invalid email or password, please check your credentials", homePage.invalidLogin());
+        homePage.processDataInsert(fields);
+        homePage.inputEmailAndPassword();
+        homePage.clickSignInButton();
     }
 
-    @Then("^the user should be signed in$")
+    @Then("the user should be signed in")
     public void theUserShouldBeSignedIn()
     {
-        Assert.assertTrue("Successfully logged in", homePage.userLoggedIn());
+        Assert.assertTrue("Successfully logged in", homePage.logInSession());
     }
 
-    @Then("^user cannot click disabled login button$")
-    public void userCannotClickDisabledLoginButton()
+    @And("the user logs out from session")
+    public void theUserLogsOutFromSession()
     {
-        Assert.assertFalse("Error: Invalid email or password, please check your credentials", homePage.disabledLoginButton());
-    }
-
-    @And("^the page shows error with blank email field$")
-    public void thePageShowsErrorWithBlankEmailField()
-    {
-        Assert.assertTrue("Error: Blank email field, please enter your email ", homePage.emptyEmailWarning());
-    }
-
-    @And("^the page shows error with wrong password format$")
-    public void thePageShowsErrorWithWrongPasswordFormat()
-    {
-        Assert.assertTrue("Error: Blank email field, please enter your email ", homePage.wrongPasswordFormat());
+        homePage.logOutSteps();
+        Assert.assertTrue("Successfully logged in", homePage.logOutSession());
     }
 }

@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.AppiumDriver;
 import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.By;
@@ -8,162 +9,122 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.xml.crypto.Data;
 import java.util.List;
 
 public class HomePage extends BasePage{
 
-    private WebDriver webDriver;
+    private AppiumDriver appiumDriver;
     private WebDriverWait wait;
-    private List<List<String>> dataTable;
-    private By emailInput = By.id("emailAddress");
-    private By searchBar = By.id("searchQuestionSolr");
-    private By loginDiv = By.className("fb-masthead-login");
-    private By loginFields = By.className("Modal__modalcontent__2yJz6");
-    private By invalidLoginMessage = By.className("Login__message__3fDqw");
-    private By accountDropDown = By.className("fb-masthead__dropdown__menu");
-    private By passwordField = By.xpath("//*[@type='password']");
-    private By findLoginButton = By.xpath("//*[@class='Button__main__1NDc9 Button__green__1fhy5']");
-    private By findDisabledLoginButton = By.xpath("//*[@class='Button__main__1NDc9 Button__disabled__RnNv9']");
-    private By loginText = By.xpath("//*[@class='fb-masthead-login__name re-design-cl__name']");
-    private By emptyEmailField = By.xpath("//*[@class='InputText__message__2FAtZ']");
-    private By wrongPassFormat = By.xpath("//*[@class='InputPassword__message__3ELVm']");
-    private By findLogoutElement = By.xpath
-            ("//*[@class='fb-filter-header__list-item']//a[@href='#']");
-    private By findLoginDivText = By.xpath
-            ("//*[@class='Login__mobileValidations__2b6z- fb-masthead-login__user-info__logged']//div[@class='fb-masthead-login__user-info']");
+    private List<List<String>> credentialsData;
+    private By searchBar = By.id("com.ebay.kijiji.ca:id/home_search_container");
+    private By menuIcon = By.id("com.ebay.kijiji.ca:id/home_search_icon");
+    private By menuDropLeft = By.id("com.ebay.kijiji.ca:id/left_drawer");
+    private By welcomeTextContainer = By.id("com.ebay.kijiji.ca:id/welcome_text");
+    private By signInButtonMenu = By.id("com.ebay.kijiji.ca:id/signInButtonInDrawer");
+    private By signInOptionButton = By.id("com.ebay.kijiji.ca:id/new_login_choice_sign_in");
+    private By signInButton = By.id("com.ebay.kijiji.ca:id/new_login_fragment_continue");
+    private By emailInputBox = By.id("com.ebay.kijiji.ca:id/new_login_fragment_email");
+    private By passwordInputBox = By.id("com.ebay.kijiji.ca:id/new_login_fragment_password");
+    private By userProfileEmail = By.id("com.ebay.kijiji.ca:id/user_profile_email");
+    private By userLoggedInContainer = By.id("com.ebay.kijiji.ca:id/userProfileContainer");
+    private By userProfilePhoto = By.id("com.ebay.kijiji.ca:id/user_profile_image_view_image");
+    private By settingsIcon = By.id("com.ebay.kijiji.ca:id/action_settings");
+    private By logOutButton = By.id("com.ebay.kijiji.ca:id/logoutButton");
 
-    public HomePage(WebDriver webDriver)
+    public HomePage(AppiumDriver appiumDriver)
     {
-        super(webDriver);
-        this.webDriver = webDriver;
-        wait = new WebDriverWait(webDriver, Long.parseLong("15"));
+        super(appiumDriver);
+        this.appiumDriver = appiumDriver;
+        wait = new WebDriverWait(appiumDriver, Long.parseLong("15"));
     }
 
-    public void processDataTable(DataTable fields)
+    public void processDataInsert(DataTable fields)
     {
-        dataTable = fields.cells();
+        credentialsData = fields.cells();
     }
 
-    public void openLoginFormOverlay()
+    public void clickMenuIcon()
     {
-        webDriver.findElement(loginDiv).click();
-        if(!webDriver.findElement(loginFields).isDisplayed())
+        wait.until(ExpectedConditions.visibilityOfElementLocated(searchBar));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(menuIcon));
+        appiumDriver.findElement(menuIcon).click();
+    }
+
+    public void clickSignInButtonFromMenu()
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(menuDropLeft));
+        appiumDriver.findElement(signInButtonMenu).click();
+    }
+
+    public void clickSignInOptionButton()
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(signInOptionButton));
+        appiumDriver.findElement(signInOptionButton).click();
+    }
+
+    public void inputEmailAndPassword()
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailInputBox));
+        clickAndSendData(emailInputBox, credentialsData.get(0).get(1));
+        clickAndSendData(passwordInputBox, credentialsData.get(1).get(1));
+    }
+
+    public void clickSignInButton()
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(signInButton));
+        appiumDriver.findElement(signInButton).click();
+    }
+
+    public void clickUserLoggedInContainer()
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(userLoggedInContainer));
+        appiumDriver.findElement(userLoggedInContainer).click();
+    }
+
+    public void clickAccountSettingsIcon()
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(userProfilePhoto));
+        appiumDriver.findElement(settingsIcon).click();
+    }
+
+    public void clickLogOutButton()
+    {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(logOutButton));
+        appiumDriver.findElement(logOutButton).click();
+    }
+
+    public boolean logInSession()
+    {
+        boolean verifyLogInSession = false;
+        String email = credentialsData.get(0).get(1);
+        clickMenuIcon();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(userProfileEmail));
+        if(appiumDriver.findElement(userProfileEmail).getText().equals(email))
         {
-            webDriver.findElement(loginDiv).click();
+            verifyLogInSession = true;
         }
+        return verifyLogInSession;
     }
 
-    public void EmailInsert()
+    public boolean logOutSession()
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(loginFields));
-        if(dataTable.get(0).get(1) != null)
+        boolean verifyLogOutSession = false;
+        clickMenuIcon();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(menuDropLeft));
+        if(appiumDriver.findElement(welcomeTextContainer).getText().toLowerCase().equals("welcome"))
         {
-            clickAndSendData(emailInput, dataTable.get(0).get(1));
+            verifyLogOutSession = true;
         }
-        clickAndSendData(emailInput, "");
+        return verifyLogOutSession;
     }
 
-    public void PasswordInsert()
+    public void logOutSteps()
     {
-        if(dataTable.get(1).get(1) != null)
-        {
-            clickAndSendData(passwordField, dataTable.get(1).get(1));
-        }
-        clickAndSendData(passwordField, "");
-    }
-
-    public void loginButton()
-    {
-        webDriver.findElement(findLoginButton).click();
-    }
-
-    public boolean disabledLoginButton()
-    {
-        boolean checkEnabledLoginButton = false;
-        if(webDriver.findElement(findDisabledLoginButton).isEnabled())
-        {
-            checkEnabledLoginButton = true;
-        }
-        return checkEnabledLoginButton;
-    }
-
-    public boolean emptyEmailWarning()
-    {
-        boolean verifyEmptyEmailWarning = false;
-        wait.until(ExpectedConditions.visibilityOfElementLocated(emptyEmailField));
-        if(webDriver.findElement(emptyEmailField).isDisplayed())
-        {
-            verifyEmptyEmailWarning = true;
-        }
-        return verifyEmptyEmailWarning;
-    }
-
-    public boolean wrongPasswordFormat()
-    {
-        boolean verifyPasswordLength = false;
-        wait.until(ExpectedConditions.visibilityOfElementLocated(wrongPassFormat));
-        if(webDriver.findElement(wrongPassFormat).isDisplayed())
-        {
-            verifyPasswordLength = true;
-        }
-        return verifyPasswordLength;
-    }
-
-    public boolean invalidLogin()
-    {
-        WebElement incorrectCredentials = wait.until(ExpectedConditions.
-                visibilityOfElementLocated(invalidLoginMessage));
-        return incorrectCredentials.isEnabled();
-    }
-
-    public boolean userLoggedIn()
-    {
-        boolean loggedIn = false;
-        wait.until(ExpectedConditions.presenceOfElementLocated(loginText));
-        String getLoginText = webDriver.findElement(loginText).getText();
-        if (getLoginText.contains("Bienvenid"))
-        {
-            loggedIn = true;
-        }
-        return loggedIn;
-    }
-
-    public void hoverAccountOptions()
-    {
-        wait.until(ExpectedConditions.presenceOfElementLocated(loginDiv));
-        WebElement hoverAction = webDriver.findElement(loginDiv);
-        Actions builder = new Actions(webDriver);
-        builder.moveToElement(hoverAction).perform();
-    }
-
-    public void clickLogout()
-    {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(accountDropDown));
-        webDriver.findElement(findLogoutElement).click();
-    }
-
-    public boolean verifyLogout()
-    {
-        boolean loggedOut = false;
-        wait.until(ExpectedConditions.presenceOfElementLocated(findLoginDivText));
-        String getVerifyLogoutText = webDriver.findElement(findLoginDivText).getText();
-        if (getVerifyLogoutText.contains("Inicia"))
-        {
-            loggedOut = true;
-        }
-        return loggedOut;
-    }
-
-    public void typeInSearchBar(String searchProduct)
-    {
-        clickAndSendData(searchBar, searchProduct + Keys.ENTER);
-    }
-
-    public void loginProcess()
-    {
-        openLoginFormOverlay();
-        EmailInsert();
-        PasswordInsert();
-        loginButton();
+        clickUserLoggedInContainer();
+        clickAccountSettingsIcon();
+        clickLogOutButton();
     }
 }

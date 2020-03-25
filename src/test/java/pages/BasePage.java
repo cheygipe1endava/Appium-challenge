@@ -1,22 +1,22 @@
 package pages;
 
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
-    private WebDriver webDriver;
+    private AppiumDriver appiumDriver;
 
-    public BasePage(WebDriver webDriver)
+    public BasePage(AppiumDriver appiumDriver)
     {
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver,this);
-
+        this.appiumDriver = appiumDriver;
+        PageFactory.initElements(appiumDriver,this);
     }
 
     public void clickAndSendData(By by, String data){
-        WebElement element = webDriver.findElement(by);
+        WebElement element = appiumDriver.findElement(by);
         element.click();
         element.sendKeys(data);
     }
