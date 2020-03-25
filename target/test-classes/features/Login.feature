@@ -1,4 +1,4 @@
-Feature: Logout
+Feature: Login
 
   Scenario: The user successfully login in Kijiji's app with previous account created
     Given the user is in Kijiji's home page

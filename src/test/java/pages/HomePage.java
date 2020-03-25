@@ -1,24 +1,21 @@
 package pages;
 
+import java.time.Duration;
+import java.util.List;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import io.cucumber.datatable.DataTable;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import javax.xml.crypto.Data;
-import java.util.List;
 
 public class HomePage extends BasePage{
 
     private AppiumDriver appiumDriver;
     private WebDriverWait wait;
     private List<List<String>> credentialsData;
-    private By searchBar = By.id("com.ebay.kijiji.ca:id/home_search_container");
     private By menuIcon = By.id("com.ebay.kijiji.ca:id/home_search_icon");
     private By menuDropLeft = By.id("com.ebay.kijiji.ca:id/left_drawer");
     private By welcomeTextContainer = By.id("com.ebay.kijiji.ca:id/welcome_text");
@@ -29,7 +26,6 @@ public class HomePage extends BasePage{
     private By passwordInputBox = By.id("com.ebay.kijiji.ca:id/new_login_fragment_password");
     private By userProfileEmail = By.id("com.ebay.kijiji.ca:id/user_profile_email");
     private By userLoggedInContainer = By.id("com.ebay.kijiji.ca:id/userProfileContainer");
-    private By userProfilePhoto = By.id("com.ebay.kijiji.ca:id/user_profile_image_view_image");
     private By settingsIcon = By.id("com.ebay.kijiji.ca:id/action_settings");
     private By logOutButton = By.id("com.ebay.kijiji.ca:id/logoutButton");
 
@@ -45,23 +41,37 @@ public class HomePage extends BasePage{
         credentialsData = fields.cells();
     }
 
+    public void scrollDown()
+    {
+        Dimension dimension = appiumDriver.manage().window().getSize();
+        double scrollHeightStart = dimension.getHeight() * 0.5;
+        double scrollHeightEnd = dimension.getHeight() * 0.2;
+        int scrollStart = (int) scrollHeightStart;
+        int scrollEnds = (int) scrollHeightEnd;
+
+
+        new TouchAction(appiumDriver)
+                .press(PointOption.point(0,scrollStart))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
+                .moveTo(PointOption.point(0,scrollEnds))
+                .release().perform();
+    }
+
+
+
     public void clickMenuIcon()
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(searchBar));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(menuIcon));
-        appiumDriver.findElement(menuIcon).click();
+        waitAndClick(menuIcon);
     }
 
     public void clickSignInButtonFromMenu()
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(menuDropLeft));
-        appiumDriver.findElement(signInButtonMenu).click();
+        waitAndClick(signInButtonMenu);
     }
 
     public void clickSignInOptionButton()
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(signInOptionButton));
-        appiumDriver.findElement(signInOptionButton).click();
+        waitAndClick(signInOptionButton);
     }
 
     public void inputEmailAndPassword()
@@ -73,27 +83,23 @@ public class HomePage extends BasePage{
 
     public void clickSignInButton()
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(signInButton));
-        appiumDriver.findElement(signInButton).click();
+        waitAndClick(signInButton);
     }
 
     public void clickUserLoggedInContainer()
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(userLoggedInContainer));
-        appiumDriver.findElement(userLoggedInContainer).click();
+        waitAndClick(userLoggedInContainer);
     }
 
     public void clickAccountSettingsIcon()
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(userProfilePhoto));
-        appiumDriver.findElement(settingsIcon).click();
+        waitAndClick(settingsIcon);
     }
 
     public void clickLogOutButton()
     {
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(logOutButton));
-        appiumDriver.findElement(logOutButton).click();
+        scrollDown();
+        waitAndClick(logOutButton);
     }
 
     public boolean logInSession()
@@ -114,7 +120,8 @@ public class HomePage extends BasePage{
         boolean verifyLogOutSession = false;
         clickMenuIcon();
         wait.until(ExpectedConditions.visibilityOfElementLocated(menuDropLeft));
-        if(appiumDriver.findElement(welcomeTextContainer).getText().toLowerCase().equals("welcome"))
+        String welcomeText = appiumDriver.findElement(welcomeTextContainer).getText().toLowerCase();
+        if(welcomeText.contains("welcome"))
         {
             verifyLogOutSession = true;
         }

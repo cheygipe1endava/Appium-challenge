@@ -41,7 +41,7 @@ $(document).ready(function() {
 
 
 
-<title>Cucumber Reports  - Feature: Logout</title>
+<title>Cucumber Reports  - Feature: Login</title>
 
 </head>
 <body>
@@ -74,7 +74,7 @@ $(document).ready(function() {
   <tbody>
     <tr class="info">
       <td>No Name (add projectName to cucumber-reporting.properties)</td>
-      <td>25 Mar 2020, 15:06</td>
+      <td>25 Mar 2020, 17:09</td>
     </tr>
   </tbody>
 </table>
@@ -126,20 +126,20 @@ $(document).ready(function() {
 
         <tbody>
         <tr>
-          <td class="tagname">Logout</td>
-          <td      class="passed"    >5</td>
-          <td      class="failed"    >1</td>
+          <td class="tagname">Login</td>
+          <td      class="passed"    >6</td>
+          <td >0</td>
           <td >0</td>
           <td >0</td>
           <td >0</td>
           <td class="total">6</td>
 
+          <td  class="passed"    >1</td>
           <td >0</td>
-          <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="54250356200">54.250</td>
-          <td class="failed">Failed</td>
+          <td class="duration" data-value="35141998700">35.141</td>
+          <td class="passed">Passed</td>
         </tr>
         </tbody>
 
@@ -171,9 +171,9 @@ $(document).ready(function() {
 </div>
 
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Feature</span>
-  <span class="name">Logout</span>
+  <span class="name">Login</span>
 
 
 </div>
@@ -189,12 +189,12 @@ $(document).ready(function() {
 </div>
 
 
-  <span class="lead-duration duration">54.250</span>
+  <span class="lead-duration duration">35.141</span>
 
 
-  <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
+  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Scenario</span>
   <span class="name">The user successfully login in Kijiji's app with previous account created</span>
 
@@ -205,7 +205,7 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details  in ">
+  <div id="element-1" class="collapse collapsable-details ">
 
 
   <div class="inner-level hooks-element-before">
@@ -227,7 +227,7 @@ $(document).ready(function() {
             <span class="keyword indention">Before</span>
               <span class="location name">helper.HookHelper.setUp()</span>
 
-  <span class="lead-duration duration">10.675</span>
+  <span class="lead-duration duration">10.910</span>
 
           </div>
 
@@ -244,9 +244,9 @@ $(document).ready(function() {
 
 
 <div class="steps inner-level">
-  <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-3">
+  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-3">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
 
@@ -256,7 +256,7 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-3" class="inner-level collapse collapsable-details  in ">
+  <div id="steps-3" class="inner-level collapse collapsable-details ">
       <div class="step">
 
 
@@ -264,7 +264,7 @@ $(document).ready(function() {
   <span class="keyword indention">Given</span>
   <span class="name">the user is in Kijiji's home page</span>
 
-  <span class="lead-duration duration">0.003</span>
+  <span class="lead-duration duration">0.004</span>
 
 </div>
 
@@ -291,7 +291,7 @@ $(document).ready(function() {
   <span class="keyword indention">And</span>
   <span class="name">the user clicks on menu icon</span>
 
-  <span class="lead-duration duration">5.274</span>
+  <span class="lead-duration duration">3.953</span>
 
 </div>
 
@@ -318,7 +318,7 @@ $(document).ready(function() {
   <span class="keyword indention">When</span>
   <span class="name">the user clicks on sign in button and selects sign in option button</span>
 
-  <span class="lead-duration duration">2.520</span>
+  <span class="lead-duration duration">2.569</span>
 
 </div>
 
@@ -345,7 +345,7 @@ $(document).ready(function() {
   <span class="keyword indention">And</span>
   <span class="name">types in its credentials for email and password and enters them clicking sign in button</span>
 
-  <span class="lead-duration duration">17.652</span>
+  <span class="lead-duration duration">17.584</span>
 
 </div>
 
@@ -382,7 +382,7 @@ $(document).ready(function() {
   <span class="keyword indention">Then</span>
   <span class="name">the user should be signed in</span>
 
-  <span class="lead-duration duration">8.167</span>
+  <span class="lead-duration duration">4.150</span>
 
 </div>
 
@@ -405,11 +405,11 @@ $(document).ready(function() {
       <div class="step">
 
 
-<div class="brief step-name-And failed">
+<div class="brief step-name-And passed">
   <span class="keyword indention">And</span>
   <span class="name">the user logs out from session</span>
 
-  <span class="lead-duration duration">20.631</span>
+  <span class="lead-duration duration">6.878</span>
 
 </div>
 
@@ -417,97 +417,6 @@ $(document).ready(function() {
 
 
 
-
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-4">
-          <a>org.openqa.selenium.TimeoutException:</a>
-      </div>
-      <div id="msg-4" class="collapse collapsable-details  in ">
-        <pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: com.ebay.kijiji.ca:id/logoutButton (tried for 15 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at pages.HomePage.clickLogOutButton(HomePage.java:95)
-	at pages.HomePage.logOutSteps(HomePage.java:128)
-	at steps.LoginSteps.theUserLogsOutFromSession(LoginSteps.java:60)
-	at &#10045;.the user logs out from session(file:///C:/Users/user/Documents/appium-ch/AppiumChallenge/src/test/resources/features/Login.feature:11)
-Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-6HD56KK', ip: '192.168.0.10', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '13.0.2'
-Driver info: io.appium.java_client.AppiumDriver
-Capabilities {appActivity: com.ebay.app.common.startup..., appPackage: com.ebay.kijiji.ca, autoGrantPermissions: true, automationName: UiAutomator1, databaseEnabled: false, desired: {appActivity: com.ebay.app.common.startup..., appPackage: com.ebay.kijiji.ca, autoGrantPermissions: true, automationName: UiAutomator1, deviceName: SM-A205G, platformName: android, platformVersion: 9, udid: R58M92BSEXD}, deviceManufacturer: samsung, deviceModel: SM-A205G, deviceName: R58M92BSEXD, deviceScreenSize: 720x1560, deviceUDID: R58M92BSEXD, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, platform: LINUX, platformName: Android, platformVersion: 9, takesScreenshot: true, udid: R58M92BSEXD, warnings: {}, webStorageEnabled: false}
-Session ID: b8d69e78-eac6-4741-a137-9b478557e042
-*** Element info: {Using=id, value=com.ebay.kijiji.ca:id/logoutButton}
-	at jdk.internal.reflect.GeneratedConstructorAccessor9.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
-	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at pages.HomePage.clickLogOutButton(HomePage.java:95)
-	at pages.HomePage.logOutSteps(HomePage.java:128)
-	at steps.LoginSteps.theUserLogsOutFromSession(LoginSteps.java:60)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-	at io.cucumber.java.Invoker.invoke(Invoker.java:27)
-	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:27)
-	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
-	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:64)
-	at io.cucumber.core.runner.TestStep.run(TestStep.java:49)
-	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:46)
-	at io.cucumber.core.runner.TestCase.run(TestCase.java:51)
-	at io.cucumber.core.runner.Runner.runPickle(Runner.java:66)
-	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:149)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:83)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:24)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:185)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:83)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:219)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
-	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)
-	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:230)
-	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
-</pre>
-      </div>
-    </div>
-  </div>
 
 
 
