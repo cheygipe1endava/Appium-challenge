@@ -31,4 +31,16 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         appiumDriver.findElement(by).click();
     }
+
+    public boolean lowerCaseValidations(By by, String text)
+    {
+        boolean verifyStatus = false;
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        String verificationText = appiumDriver.findElement(by).getText().toLowerCase();
+        if(verificationText.contains(text))
+        {
+            verifyStatus = true;
+        }
+        return verifyStatus;
+    }
 }

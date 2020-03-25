@@ -3,18 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="7be9d565-1abe-42cb-9363-25b85d6167fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/helper/HookHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/helper/HookHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/RegisterUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/steps/LoginSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/LoginSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Login.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cucumber/cucumber-html-reports/overview-failures.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/cucumber/cucumber-html-reports/overview-failures.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cucumber/cucumber-html-reports/overview-features.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/cucumber/cucumber-html-reports/overview-features.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cucumber/cucumber-html-reports/overview-steps.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/cucumber/cucumber-html-reports/overview-steps.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cucumber/cucumber-html-reports/overview-tags.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/cucumber/cucumber-html-reports/overview-tags.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cucumber/cucumber-html-reports/report-feature_1764534172.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/cucumber/cucumber-html-reports/report-feature_1764534172.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/Login.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/helper/HookHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/helper/HookHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/pages/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/BasePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/pages/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/steps/LoginSteps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/steps/LoginSteps.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,15 +58,16 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="JUnit.TestRunner">
-    <configuration name="Feature: DeleteFromShoppingBag" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Cucumber java.Scenario: The user unsuccessfully login in Kijiji's app with both wrong credentials">
+    <configuration name="Scenario: The user successfully login in Kijiji's app with previous account created" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/DeleteFromShoppingBag.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Login.feature" />
       <option name="GLUE" value="helper steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="untitled" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <option name="SUGGESTED_NAME" value="Feature: DeleteFromShoppingBag" />
+      <option name="NAME_FILTER" value="^The user successfully login in Kijiji\'s app with previous account created$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^The user successfully login in Kijiji\'s app with previous account created$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: The user successfully login in Kijiji's app with previous account created" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="io.cucumber.core.cli.*" />
@@ -79,14 +78,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Feature: Logout" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: The user unsuccessfully login in Kijiji's app with both empty credentials" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Logout.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Login.feature" />
       <option name="GLUE" value="helper steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="untitled" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <option name="SUGGESTED_NAME" value="Feature: Logout" />
+      <option name="NAME_FILTER" value="^The user unsuccessfully login in Kijiji\'s app with both empty credentials$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^The user unsuccessfully login in Kijiji\'s app with both empty credentials$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: The user unsuccessfully login in Kijiji's app with both empty credentials" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="io.cucumber.core.cli.*" />
@@ -97,15 +97,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: The user can filter by object price with only final price" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: The user unsuccessfully login in Kijiji's app with both wrong credentials" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Filter.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Login.feature" />
       <option name="GLUE" value="helper steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="untitled" />
-      <option name="NAME_FILTER" value="^The user can filter by object price with only final price$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^The user can filter by object price with only final price$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: The user can filter by object price with only final price" />
+      <option name="NAME_FILTER" value="^The user unsuccessfully login in Kijiji\'s app with both wrong credentials$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^The user unsuccessfully login in Kijiji\'s app with both wrong credentials$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: The user unsuccessfully login in Kijiji's app with both wrong credentials" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="io.cucumber.core.cli.*" />
@@ -116,15 +116,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: The user unsuccessfully register in Falabella's web page" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: The user unsuccessfully login in Kijiji's app with wrong email" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Registration.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Login.feature" />
       <option name="GLUE" value="helper steps" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="untitled" />
-      <option name="NAME_FILTER" value="^The user unsuccessfully register in Falabella\'s web page$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^The user unsuccessfully register in Falabella\'s web page$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: The user unsuccessfully register in Falabella's web page" />
+      <option name="NAME_FILTER" value="^The user unsuccessfully login in Kijiji\'s app with wrong email$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^The user unsuccessfully login in Kijiji\'s app with wrong email$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: The user unsuccessfully login in Kijiji's app with wrong email" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="io.cucumber.core.cli.*" />
@@ -152,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber java.Scenario: The user unsuccessfully login in Kijiji's app with both wrong credentials" />
+        <item itemvalue="Cucumber java.Scenario: The user successfully login in Kijiji's app with previous account created" />
+        <item itemvalue="Cucumber java.Scenario: The user unsuccessfully login in Kijiji's app with both empty credentials" />
+        <item itemvalue="Cucumber java.Scenario: The user unsuccessfully login in Kijiji's app with wrong email" />
         <item itemvalue="JUnit.TestRunner" />
-        <item itemvalue="Cucumber java.Feature: Logout" />
-        <item itemvalue="Cucumber java.Scenario: The user unsuccessfully register in Falabella's web page" />
-        <item itemvalue="Cucumber java.Feature: DeleteFromShoppingBag" />
-        <item itemvalue="Cucumber java.Scenario: The user can filter by object price with only final price" />
       </list>
     </recent_temporary>
   </component>
@@ -198,22 +198,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585157007659" />
-    <state width="1877" height="263" key="GridCell.Tab.0.bottom" timestamp="1585174105191">
+    <state width="1877" height="263" key="GridCell.Tab.0.bottom" timestamp="1585180228961">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="263" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585174105191" />
-    <state width="1877" height="263" key="GridCell.Tab.0.center" timestamp="1585174105191">
+    <state width="1877" height="263" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585180228961" />
+    <state width="1877" height="263" key="GridCell.Tab.0.center" timestamp="1585180228961">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="263" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585174105191" />
-    <state width="1877" height="263" key="GridCell.Tab.0.left" timestamp="1585174105190">
+    <state width="1877" height="263" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585180228960" />
+    <state width="1877" height="263" key="GridCell.Tab.0.left" timestamp="1585180228960">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="263" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585174105190" />
-    <state width="1877" height="263" key="GridCell.Tab.0.right" timestamp="1585174105191">
+    <state width="1877" height="263" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585180228960" />
+    <state width="1877" height="263" key="GridCell.Tab.0.right" timestamp="1585180228961">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="263" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585174105191" />
+    <state width="1877" height="263" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585180228961" />
     <state width="1877" height="281" key="GridCell.Tab.1.bottom" timestamp="1585173278863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

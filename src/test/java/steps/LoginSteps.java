@@ -9,12 +9,17 @@ import io.cucumber.java.en.And;
 import helper.HookHelper;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import pages.AccountPage;
 import pages.HomePage;
+import pages.LoginPage;
 
 public class LoginSteps {
 
     private AppiumDriver appiumDriver;
     private HomePage homePage;
+    private LoginPage loginPage;
+    private AccountPage accountPage;
+    private String email;
 
     public LoginSteps(HookHelper hookHelper)
     {
@@ -25,6 +30,8 @@ public class LoginSteps {
     public void theUserIsInKijijiSHomePage()
     {
         homePage = new HomePage(appiumDriver);
+        loginPage = new LoginPage(appiumDriver);
+        accountPage = new AccountPage(appiumDriver);
     }
 
     @And("the user clicks on menu icon")
@@ -37,27 +44,35 @@ public class LoginSteps {
     public void theUserClicksOnSignInButtonAndSelectsSignInOptionButton()
     {
         homePage.clickSignInButtonFromMenu();
-        homePage.clickSignInOptionButton();
+        loginPage.clickSignInOptionButton();
     }
 
-    @And("types in its credentials for email and password and enters them clicking sign in button")
-    public void typesInItsCredentialsForEmailAndPasswordAndEntersThemClickingSignInButton(DataTable fields)
+    @And("types in its credentials for email and password and enters them by clicking sign in button")
+    public void typesInItsCredentialsForEmailAndPasswordAndEntersThemByClickingSignInButton(DataTable fields)
     {
-        homePage.processDataInsert(fields);
-        homePage.inputEmailAndPassword();
-        homePage.clickSignInButton();
+        loginPage.processDataInsert(fields);
+        email = loginPage.inputEmailAndPassword();
+        loginPage.clickSignInButton();
     }
 
     @Then("the user should be signed in")
     public void theUserShouldBeSignedIn()
     {
-        Assert.assertTrue("Successfully logged in", homePage.logInSession());
+        Assert.assertTrue("Successfully logged in", homePage.logInSession(email));
     }
 
     @And("the user logs out from session")
     public void theUserLogsOutFromSession()
     {
-        homePage.logOutSteps();
-        Assert.assertTrue("Successfully logged in", homePage.logOutSession());
+        homePage.clickUserLoggedInContainer();
+        accountPage.clickAccountSettingsIcon();
+        accountPage.clickLogOutButton();
+        Assert.assertTrue("Successfully logged out", homePage.logOutSession());
+    }
+
+    @Then("the user cannot login because app shows error with credentials")
+    public void theUserCannotLoginBecauseAppShowsErrorWithCredentials()
+    {
+        Assert.assertTrue("Successfully logged in", loginPage.failedLogIn());
     }
 }

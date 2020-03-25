@@ -3,7 +3,6 @@ package helper;
 import io.appium.java_client.AppiumDriver;
 import io.cucumber.java.Before;
 import io.cucumber.java.After;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -35,13 +34,11 @@ public class HookHelper {
         return appiumDriver;
     }
 
-    /*
+
     @After
     public void tearDown()
     {
-        appiumDriver.quit();
+        appiumDriver.closeApp();
     }
-
-     */
 }
 
