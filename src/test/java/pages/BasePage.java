@@ -1,6 +1,7 @@
 package pages;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -9,10 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
-    private AppiumDriver appiumDriver;
+    private AppiumDriver<MobileElement> appiumDriver;
     private WebDriverWait wait;
 
-    public BasePage(AppiumDriver appiumDriver)
+    public BasePage(AppiumDriver<MobileElement> appiumDriver)
     {
         this.appiumDriver = appiumDriver;
         PageFactory.initElements(appiumDriver,this);

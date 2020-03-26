@@ -1,6 +1,7 @@
 package steps;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -8,14 +9,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.And;
 import helper.HookHelper;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import pages.AccountPage;
 import pages.HomePage;
 import pages.LoginPage;
 
 public class LoginSteps {
 
-    private AppiumDriver appiumDriver;
+    private AppiumDriver<MobileElement> appiumDriver;
     private HomePage homePage;
     private LoginPage loginPage;
     private AccountPage accountPage;

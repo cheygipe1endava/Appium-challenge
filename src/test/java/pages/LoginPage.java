@@ -2,6 +2,7 @@ package pages;
 
 import java.util.List;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,7 +18,7 @@ public class LoginPage extends BasePage
     private By signInButton = By.id("com.ebay.kijiji.ca:id/new_login_fragment_continue");
     private By failedLogInText = By.id("com.ebay.kijiji.ca:id/title");
 
-    public LoginPage(AppiumDriver appiumDriver)
+    public LoginPage(AppiumDriver<MobileElement> appiumDriver)
     {
         super(appiumDriver);
         wait = new WebDriverWait(appiumDriver, Long.parseLong("15"));

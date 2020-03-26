@@ -1,6 +1,7 @@
 package helper;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.cucumber.java.Before;
 import io.cucumber.java.After;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -10,7 +11,7 @@ import java.net.URL;
 
 public class HookHelper {
 
-    private AppiumDriver appiumDriver;
+    private AppiumDriver<MobileElement> appiumDriver;
 
     @Before
     public void setUp() throws MalformedURLException
@@ -29,11 +30,10 @@ public class HookHelper {
         appiumDriver = new AppiumDriver<>(url, desiredCapabilities);
     }
 
-    public AppiumDriver getAppiumDriver()
+    public AppiumDriver<MobileElement> getAppiumDriver()
     {
         return appiumDriver;
     }
-
 
     @After
     public void tearDown()
