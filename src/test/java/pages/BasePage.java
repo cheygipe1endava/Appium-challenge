@@ -1,23 +1,23 @@
 package pages;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
+import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import io.appium.java_client.touch.WaitOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class BasePage {
 
     private AppiumDriver<MobileElement> appiumDriver;
     private WebDriverWait wait;
+    private boolean verifyStatus;
 
     public BasePage(AppiumDriver<MobileElement> appiumDriver)
     {
@@ -41,10 +41,21 @@ public class BasePage {
 
     public boolean lowerCaseValidations(By by, String text)
     {
-        boolean verifyStatus = false;
+        verifyStatus = false;
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         String verificationText = appiumDriver.findElement(by).getText().toLowerCase();
         if(verificationText.contains(text))
+        {
+            verifyStatus = true;
+        }
+        return verifyStatus;
+    }
+
+    public boolean equalsTextValidations(By by, String text)
+    {
+        verifyStatus = false;
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        if (appiumDriver.findElement(by).getText().equals(text))
         {
             verifyStatus = true;
         }

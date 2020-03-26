@@ -1,10 +1,10 @@
 package pages;
 
+import org.openqa.selenium.By;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class FavouritesPage extends BasePage
 {
@@ -38,12 +38,6 @@ public class FavouritesPage extends BasePage
 
     public boolean noAdsAddedAsFavourites()
     {
-        boolean verifyNoAdsAddedAsFavouritesState = false;
-        wait.until(ExpectedConditions.visibilityOfElementLocated(noAdsAddedText));
-        if (appiumDriver.findElement(noAdsAddedText).getText().equals("You do not have any favourites"))
-        {
-            verifyNoAdsAddedAsFavouritesState = true;
-        }
-        return verifyNoAdsAddedAsFavouritesState;
+        return equalsTextValidations(noAdsAddedText, "You do not have any favourites");
     }
 }

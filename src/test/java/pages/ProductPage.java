@@ -1,8 +1,8 @@
 package pages;
 
+import org.openqa.selenium.By;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import org.openqa.selenium.By;
 
 public class ProductPage extends BasePage
 {
@@ -10,6 +10,7 @@ public class ProductPage extends BasePage
     private String goBackArrow = "Navigate up";
     private By adTitle = By.id("com.ebay.kijiji.ca:id/adTitle");
     private By heartIcon = By.id("com.ebay.kijiji.ca:id/action_favorite");
+    private By sellerNameContainer = By.id("com.ebay.kijiji.ca:id/user_profile_name_view");
 
     public ProductPage(AppiumDriver<MobileElement> appiumDriver)
     {
@@ -30,5 +31,12 @@ public class ProductPage extends BasePage
     public void goBackToHomePage()
     {
         appiumDriver.findElementByAccessibilityId(goBackArrow).click();
+    }
+
+    public String getAndClickSellerName()
+    {
+        String sellerName = appiumDriver.findElement(sellerNameContainer).getText().toLowerCase();
+        appiumDriver.findElement(sellerNameContainer).click();
+        return sellerName;
     }
 }

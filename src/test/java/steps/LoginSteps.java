@@ -1,17 +1,17 @@
 package steps;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.cucumber.datatable.DataTable;
+import pages.HomePage;
+import pages.LoginPage;
+import org.junit.Assert;
+import helper.HookHelper;
+import pages.AccountPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.And;
-import helper.HookHelper;
-import org.junit.Assert;
-import pages.AccountPage;
-import pages.HomePage;
-import pages.LoginPage;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.cucumber.datatable.DataTable;
 
 public class LoginSteps {
 
@@ -73,6 +73,6 @@ public class LoginSteps {
     @Then("the user cannot login because app shows error with credentials")
     public void theUserCannotLoginBecauseAppShowsErrorWithCredentials()
     {
-        Assert.assertTrue("Successfully logged in", loginPage.failedLogIn());
+        Assert.assertTrue("Error: Invalid credentials, unable to login", loginPage.failedLogIn());
     }
 }

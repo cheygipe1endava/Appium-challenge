@@ -1,12 +1,12 @@
 package pages;
 
 import java.util.List;
+import org.openqa.selenium.By;
+import io.cucumber.datatable.DataTable;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.cucumber.datatable.DataTable;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage
 {

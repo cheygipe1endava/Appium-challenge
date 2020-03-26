@@ -1,15 +1,15 @@
 package steps;
 
+import pages.*;
 import helper.HookHelper;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.cucumber.datatable.DataTable;
+import org.junit.Assert;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-import pages.*;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.cucumber.datatable.DataTable;
 
 public class PostPageSteps
 {
@@ -19,7 +19,8 @@ public class PostPageSteps
     private CarsPage carsPage;
     private ProductPage productPage;
     private FavouritesPage favouritesPage;
-    private String productText;
+    private ProfilePage profilePage;
+    private String productText, sellerName;
 
     public PostPageSteps(HookHelper hookHelper)
     {
@@ -29,8 +30,8 @@ public class PostPageSteps
     @Given("the user logs in Kijiji's web page")
     public void theUserLogsInKijijiSWebPage(DataTable fields)
     {
-        homePage = new HomePage(appiumDriver);
         LoginPage loginPage = new LoginPage(appiumDriver);
+        homePage = new HomePage(appiumDriver);
         carsPage = new CarsPage(appiumDriver);
         homePage.clickMenuIcon();
         homePage.clickSignInButtonFromMenu();
@@ -55,6 +56,7 @@ public class PostPageSteps
         productPage = new ProductPage(appiumDriver);
         favouritesPage = new FavouritesPage(appiumDriver);
         accountPage = new AccountPage(appiumDriver);
+        profilePage = new ProfilePage(appiumDriver);
         Assert.assertTrue("Successfully selected first car post", productPage.postPageVerification(productText));
     }
 
@@ -85,16 +87,37 @@ public class PostPageSteps
         productPage.postPageVerification(productText);
         productPage.clickHeartIcon();
         productPage.goBackToHomePage();
+        favouritesPage.openMenu();
         Assert.assertTrue("Successfully deleted post from Favourites", favouritesPage.noAdsAddedAsFavourites());
     }
 
     @And("the user closes the session")
     public void theUserClosesTheSession()
     {
-        favouritesPage.openMenu();
         homePage.clickUserLoggedInContainer();
         accountPage.clickAccountSettingsIcon();
         accountPage.clickLogOutButton();
         Assert.assertTrue("Successfully logged out", homePage.logOutSession());
+    }
+
+    @When("the user clicks on seller's name")
+    public void theUserClicksOnSellerSName()
+    {
+        sellerName = productPage.getAndClickSellerName();
+    }
+
+    @Then("the user should have been redirected to the seller's profile page")
+    public void theUserShouldHaveBeenRedirectedToTheSellerSProfilePage()
+    {
+        Assert.assertTrue("Successfully logged out", profilePage.profilePageVerification(sellerName));
+    }
+
+    @And("the user goes back to home page")
+    public void theUserGoesBackToHomePage()
+    {
+        profilePage.goBackToHomePage();
+        productPage.goBackToHomePage();
+        carsPage.goBackToHomePage();
+        homePage.clickMenuIcon();
     }
 }
