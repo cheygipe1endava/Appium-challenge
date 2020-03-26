@@ -11,7 +11,8 @@ public class CarsPage extends BasePage
 {
     private AppiumDriver<MobileElement> appiumDriver;
     private WebDriverWait wait;
-    private By availableInCanadaText = By.id("com.ebay.kijiji.ca:id/card_title_text");
+    private String goBackArrow = "Navigate up";
+    private By toolBar = By.id("com.ebay.kijiji.ca:id/toolbar_actionbar");
     private By availableInCanadaList = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[3]/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout/android.widget.TextView");
 
     public CarsPage(AppiumDriver<MobileElement> appiumDriver)
@@ -29,5 +30,11 @@ public class CarsPage extends BasePage
         String productText = carsProductList.get(0).getText().toLowerCase();
         carsProductList.get(0).click();
         return productText;
+    }
+
+    public void goBackToHomePage()
+    {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(toolBar));
+        appiumDriver.findElementByAccessibilityId(goBackArrow).click();
     }
 }

@@ -15,6 +15,7 @@ public class HomePage extends BasePage {
     private By userProfileEmail = By.id("com.ebay.kijiji.ca:id/user_profile_email");
     private By userLoggedInContainer = By.id("com.ebay.kijiji.ca:id/userProfileContainer");
     private By homePageIcon = By.xpath("//android.widget.RelativeLayout/android.widget.TextView[@text='Home']");
+    private By favouritesIcon = By.xpath("//android.widget.RelativeLayout/android.widget.TextView[@text='Favourites']");
     private By carsAndVehiclesIcon = By.xpath("//android.widget.LinearLayout/android.widget.TextView[@text='Cars & Vehicles']");
 
     public HomePage(AppiumDriver<MobileElement> appiumDriver) {
@@ -31,13 +32,20 @@ public class HomePage extends BasePage {
         waitAndClick(signInButtonMenu);
     }
 
-    public void clickUserLoggedInContainer() {
+    public void clickUserLoggedInContainer()
+    {
         waitAndClick(userLoggedInContainer);
     }
 
     public void clickHomePageOption()
     {
         waitAndClick(homePageIcon);
+    }
+
+    public void clickFavouritesOption()
+    {
+        waitAndClick(menuIcon);
+        waitAndClick(favouritesIcon);
     }
 
     public void clickCarsAndVehiclesIcon()
