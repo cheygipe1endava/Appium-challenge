@@ -21,21 +21,6 @@ public class AccountPage extends BasePage
         this.appiumDriver = appiumDriver;
     }
 
-    public void scrollDown()
-    {
-        Dimension dimension = appiumDriver.manage().window().getSize();
-        double scrollHeightStart = dimension.getHeight() * 0.5;
-        double scrollHeightEnd = dimension.getHeight() * 0.2;
-        int scrollStart = (int) scrollHeightStart;
-        int scrollEnds = (int) scrollHeightEnd;
-
-        new TouchAction<>(appiumDriver)
-                .press(PointOption.point(0,scrollStart))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
-                .moveTo(PointOption.point(0,scrollEnds))
-                .release().perform();
-    }
-
     public void clickAccountSettingsIcon()
     {
         waitAndClick(settingsIcon);
